@@ -1,0 +1,33 @@
+<div id="main2">
+  <div id="left">
+    &nbsp
+  </div>
+  <div id="content">
+    <div class="content-content">
+      <hr>
+      <p id="notice"><%= notice %></p>
+      <hr>
+      <p class="names">
+      <strong>Posted by:</strong>
+      <%= @post.user.name %>
+      </p>
+      <p>
+      <strong>Content:</strong>
+      <%= @post.content %>
+      </p>
+      <p>
+      <strong>Image:</strong>
+      <%= image_tag @post.image.url, style:"width:500px" %>
+      </p>
+      <%= link_to 'Back', posts_path,class:'btn btn-primary' %>
+      <% unless @post.user_id == current_user.id %>
+        <% if @favorite.present? %>
+          <%= link_to 'Cancel favorite', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+          <% else %>
+          <%= link_to 'Make it a favorite', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
+        <% end %>
+      <% end %>
+    </div>
+  <div id="right"></div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<h1>Posted</h1>
+<p><strong>content:</strong><%= @post.content %></p>
+<% if @post.image.url  %>
+<p><strong>image:</strong><p><%= image_tag @post.image.url , width: 500 %></p>
+<% end %>
